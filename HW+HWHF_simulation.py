@@ -14,6 +14,13 @@ num_paths = 1000              # Number of simulated paths
 num_steps = 5000               # Number of time steps
 dt = 0.01                     # Time step size
 
+'''
+Our objective is to capture the periodicity better in HWHF model.
+I took Time period to be 22 years (in flt_frequency), and 
+took dt = 0.01 and iteration (num_steps) = 5000
+Which results our simulation time to be 5000*0.01 = 50 (which is greater than 22 years)
+'''
+
 # Time vector
 time = np.linspace(0, num_steps * dt, num_steps + 1)
 
@@ -59,5 +66,4 @@ plot_mean_path(mean_path_hw, "Mean Interest Rate Path (Hull-White Model)")
 paths_hw_harmonic = hw_harmonic_model_vectorized()
 mean_path_hw_harmonic = np.mean(paths_hw_harmonic, axis=0)
 plot_mean_path(mean_path_hw_harmonic, "Mean Interest Rate Path (Hull-White Harmonic Forcing)")
-
 
